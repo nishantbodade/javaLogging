@@ -18,5 +18,6 @@ public class LogExample {
 
         LOGGER.log(Level.FINEST,"this is an example message");
 
+
     }
 }
