@@ -1,8 +1,5 @@
 import java.io.IOException;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class LogExample {
 
@@ -14,6 +11,7 @@ public class LogExample {
         FileHandler fileHandler= null;
         try {
             fileHandler = new FileHandler(LogExample.class.getName()+".log");
+            fileHandler.setFormatter(new SimpleFormatter());
             fileHandler.setLevel(Level.FINEST);
         } catch (IOException e) {
             e.printStackTrace();
