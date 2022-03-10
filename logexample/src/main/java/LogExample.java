@@ -13,6 +13,10 @@ public class LogExample {
             fileHandler = new FileHandler(LogExample.class.getName()+".log");
             fileHandler.setFormatter(new SimpleFormatter());
             fileHandler.setLevel(Level.FINEST);
+//            Filter filterAll=s ->false;
+////            fileHandler.setFilter(filterAll);//will ignore the logs in file handler only,console will be shown
+////            LOGGER.setFilter(filterAll);//igore all logs including console
+
         } catch (IOException e) {
             e.printStackTrace();
         }
