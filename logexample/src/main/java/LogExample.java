@@ -1,4 +1,6 @@
+import java.io.IOException;
 import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,9 +11,15 @@ public class LogExample {
     static
     {
         LOGGER.setLevel(Level.FINEST);
-        ConsoleHandler consoleHandler=new ConsoleHandler();
-        consoleHandler.setLevel(Level.FINEST);
-        LOGGER.addHandler(consoleHandler);
+        FileHandler fileHandler= null;
+        try {
+            fileHandler = new FileHandler(LogExample.class.getName()+".log");
+            fileHandler.setLevel(Level.FINEST);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        LOGGER.addHandler(fileHandler);
 
     }
     public static void main(String[] args) {
