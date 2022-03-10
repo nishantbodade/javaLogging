@@ -1,3 +1,4 @@
+import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -5,7 +6,14 @@ public class LogExample {
 
     private static final Logger LOGGER=Logger.getLogger(LogExample.class.getName());
     public static void main(String[] args) {
-        LOGGER.log(Level.INFO,"this is an example message");
+        LOGGER.setLevel(Level.FINEST);
+
+        ConsoleHandler consoleHandler=new ConsoleHandler();
+        consoleHandler.setLevel(Level.FINEST);
+
+        LOGGER.addHandler(consoleHandler);
+
+        LOGGER.log(Level.FINEST,"this is an example message");
 
     }
 }
